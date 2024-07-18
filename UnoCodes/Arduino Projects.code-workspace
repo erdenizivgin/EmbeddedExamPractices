@@ -1,0 +1,26 @@
+{
+	"folders": [
+        {
+            "path": "lib"
+        },
+        {
+            "path": "blink_led"
+        },
+        {
+            "path": "timer"
+        }
+    ],
+	"settings": {
+		"files.associations": {
+			"delay.h": "c",
+			"stdbool.h": "c",
+			"io.h": "c",
+			"stdio.h": "c",
+			"interrupt.h": "c",
+			"iom324pb.h": "c",
+			"iom1608.h": "c",
+			"stdint.h": "c",
+			"atomic.h": "c",
+		}
+	}
+}
