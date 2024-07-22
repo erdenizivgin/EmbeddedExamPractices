@@ -1,20 +1,34 @@
 #include "avr/io.h"
-#include <util/delay.h>
-
+#include "avr/interrupt.h"
+#include "timer.h"
+#include "led.h"
 
 #define LEDPIN PB5
 #define LEDPORT PORTB
 #define LEDDDR DDRB
 
-int main(void)
+static volatile int count = 0;
+
+void blinkLed(void)
 {
 
-  LEDDDR |= (1 << LEDPIN);
+  count++;
+  // For loop to toggle the builtin led to toggle every 1 sec
+  if (count >= 1000)
+  {
+    count = 0;
+    led_builtinToggle();
+  }
+}
 
+int main(void)
+{
+  led_builtinInit();
+  timer0_setCallback(&blinkLed);
+  timer0_start();
+  sei();
   while (1)
   {
-    LEDPORT ^= (1 << LEDPIN);
-    _delay_ms(200);
   }
 
   return 0;

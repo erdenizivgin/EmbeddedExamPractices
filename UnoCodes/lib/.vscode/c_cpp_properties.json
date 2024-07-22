@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/erden/.platformio/packages/toolchain-atmelavr/avr/include"
+            ],
+            "defines": [
+                "F_CPU=16000000L",
+                "PLATFORMIO=60115",
+                "ARDUINO_AVR_UNO",
+                "__AVR_ATmega328P__"
+            ],
+            "compilerPath": "C:/Users/erden/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "intelliSenseMode": "${default}",
+            "compilerArgs": [
+                "-mmcu=atmega328p"
+            ]
+        }
+    ],
+    "version": 4
+}
