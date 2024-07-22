@@ -14,7 +14,7 @@ int main(void)
   while (1)
   {
     LEDPORT ^= (1 << LEDPIN);
-    _delay_ms(1500);
+    _delay_ms(300);
   }
 
   return 0;
