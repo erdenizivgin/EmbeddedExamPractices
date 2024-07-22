@@ -3,10 +3,6 @@
 #include "timer.h"
 #include "led.h"
 
-#define LEDPIN PB5
-#define LEDPORT PORTB
-#define LEDDDR DDRB
-
 static volatile int count = 0;
 
 void blinkLed(void)

@@ -1,15 +1,18 @@
 {
 	"folders": [
-        {
-            "path": "lib"
-        },
-        {
-            "path": "blink_led"
-        },
-        {
-            "path": "timer"
-        }
-    ],
+		{
+			"path": "lib"
+		},
+		{
+			"path": "blink_led"
+		},
+		{
+			"path": "timer"
+		},
+		{
+			"path": "scheduler"
+		}
+	],
 	"settings": {
 		"files.associations": {
 			"delay.h": "c",
