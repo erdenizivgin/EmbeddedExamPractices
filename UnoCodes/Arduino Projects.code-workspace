@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "scheduler"
+		},
+		{
+			"path": "serial_monitor"
 		}
 	],
 	"settings": {
@@ -26,7 +29,8 @@
 			"atomic.h": "c",
 			"timer.h": "c",
 			"iom328p.h": "c",
-			"led.h": "c"
+			"led.h": "c",
+			"serialmonitor.h": "c"
 		}
 	}
 }
