@@ -1,7 +1,7 @@
 #include "avr/io.h"
 #include <util/delay.h>
 
-#define LEDPIN PB5
+#define LEDPIN PB0
 #define LEDPORT PORTB
 #define LEDDDR DDRB
 
@@ -13,7 +13,7 @@ int main(void)
   while (1)
   {
     LEDPORT ^= (1 << LEDPIN);
-    _delay_ms(300);
+    _delay_ms(1000);
   }
 
   return 0;

@@ -26,4 +26,6 @@ void timer0_start(void);
  */
 void timer0_stop(void);
 
+void timer1_PWMinit(void);
+
 #endif /* TIMER_H_ */

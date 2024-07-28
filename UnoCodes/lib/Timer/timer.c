@@ -3,6 +3,8 @@
 #include "avr/interrupt.h"
 
 #define TIMER0_CYC_FOR_1MS 249
+#define TIMER1_ICR_VAL 31249
+#define TIMER1_DUTYCYCLE 0.7
 
 static volatile pTimerCallback timer0Callback;
 static volatile pTimerCallback timer1Callback;
@@ -30,4 +32,21 @@ void timer0_setCallback(pTimerCallback callback)
 ISR(TIMER0_COMPA_vect)
 {
     timer0Callback();
+}
+
+void timer1_PWMinit(void)
+{
+    // Set non inverting pwm mode
+    TCCR1A |= (1 << COM1A1) | (1 << WGM11);
+    // Fast PWM with TOP ICR1A
+    TCCR1B |= (1 << WGM13) | (1 << WGM12);
+    // Set prescaler to 1024
+    TCCR1B |= (1 << CS12) | (1 << CS10);
+    // For 2 sec period the top value set to 31249
+    ICR1 = TIMER1_ICR_VAL;
+    // 70% duty cycle OCR1A value 21874
+    OCR1A = (uint16_t)(TIMER1_ICR_VAL * TIMER1_DUTYCYCLE);
+
+    // set OC1A pin (PB1) as output
+    DDRB |= (1 << PB1);
 }

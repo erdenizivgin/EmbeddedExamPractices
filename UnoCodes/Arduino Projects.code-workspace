@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "fsm"
+		},
+		{
+			"path": "PWM"
 		}
 	],
 	"settings": {
