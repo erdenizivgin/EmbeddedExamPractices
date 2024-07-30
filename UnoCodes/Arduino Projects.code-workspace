@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "PWM"
+		},
+		{
+			"path": "eeprom"
 		}
 	],
 	"settings": {
@@ -36,7 +39,8 @@
 			"timer.h": "c",
 			"iom328p.h": "c",
 			"led.h": "c",
-			"serialmonitor.h": "c"
+			"serialmonitor.h": "c",
+			"eeprom.h": "c"
 		}
 	}
 }

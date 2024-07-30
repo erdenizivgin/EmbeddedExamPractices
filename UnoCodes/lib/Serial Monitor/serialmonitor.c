@@ -12,7 +12,7 @@ void USART_Init(baud_rate_t br)
     UBRR0L = ubbr;
 
     // Enable receiver, receiver interrupt and transmitter
-    UCSR0B = (1 << RXCIE0) | (1 << RXEN0) | (1 << TXEN0);
+    UCSR0B =  (1 << RXEN0) | (1 << TXEN0);
 
     // Set frame format: 8 data bits, 1 stop bit
     UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
