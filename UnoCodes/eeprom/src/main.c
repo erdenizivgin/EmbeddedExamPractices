@@ -1,34 +1,34 @@
 #include "avr/io.h"
-#include <stdio.h>
 #include <util/delay.h>
 #include "led.h"
 #include "serialmonitor.h"
 #include "eeprom.h"
-#include "timer.h"
 
 #define EEPROM_ADDRESS 0x010
+#define BUFFER_SIZE 10
+
 
 int main(void)
 {
-  uint8_t data = 'a';
-  //char buffer[128];
-  USART_Init();
-  FILE *fptr;
-  fptr = fopen("C:\\C code\\EmbeddedExamPractices\\data.txt","w");
+  char data = '0';
+  USART_Init(BAUD_RATE_9600);
 
   while (1)
   {
-    _delay_ms(1000);
-    data++;
-    // write the data variable to memory address 123
+    _delay_ms(500);
+    // write the data variable to memory address EEPROM_ADDRESS
     eeprom_write(EEPROM_ADDRESS, data);
-    //read the data variable from address 123
+    
+    // read the data variable from address EEPROM_ADDRESS
     data = eeprom_read(EEPROM_ADDRESS);
+    
+
     // send the data via UART to debug
-    //sprintf(buffer, "%u is read from eeprom\n", data);
-    //USART_Transmit((unsigned char)data);
-    fprintf(fptr,"%c\n",data);
+    USART_Transmit((unsigned char)data);
+    data++;
   }
-  fclose(fptr);
+
   return 0;
 }
+
+
